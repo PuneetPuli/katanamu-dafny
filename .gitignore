@@ -1,0 +1,21 @@
+# Dafny build outputs
+*.dfy.bpl
+*.dfy.mdb
+*.dll
+*.exe
+*.pdb
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Backup files
+*.bak
+*.backup
