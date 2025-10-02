@@ -1,4 +1,4 @@
-# Katanamu (కతనం)
+# Katanamu (కతనము)
 
 > A minimal natural-deduction proof checker in Dafny
 
