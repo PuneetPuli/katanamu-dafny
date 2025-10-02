@@ -1,15 +1,19 @@
 # Katanamu (కతనం)
 
-**Katanamu** (కతనం, meaning *Reason* or *Cause* in Mēlimi Telugu) is a minimal 
-**natural-deduction proof checker** written in **Dafny** for propositional logic.  
+> A minimal natural-deduction proof checker in Dafny
 
-It represents logical formulas (`Atom`, `And`, `Or`, `Not`, `Implies`, `Iff`) 
-and validates proofs line by line using explicit justifications 
-(`Assumption`, `AndIntro`, `AndElim`, `ImpliesElim`, `OrIntro`).  
+[![Dafny](https://img.shields.io/badge/Dafny-4.0+-blue.svg)](https://dafny.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-`Katanamu` ensures **no forward references** and provides predicates to check 
-validity (`ValidProof`), functionally assert correctness (`CheckProof`), and 
-verify that a proof derives its intended conclusion (`Proves`).
+---
+
+## Overview
+
+**Katanamu** (కతనం, *reason* or *cause* in Mēlimi Telugu) is a formally verified proof checker for propositional logic. It validates natural deduction proofs line-by-line, ensuring each inference step is sound.
+
+**Current scope:** Basic propositional logic with conjunction, disjunction, and implication. Advanced features like subproofs, negation rules, and implication introduction are planned for future releases.
+
+---
 
 ## Quick Start
 
@@ -41,20 +45,28 @@ assert CheckProof(proof);  // Verified!
 
 ---
 
-## Features
+## Implemented Features
 
 **Logical Operators**  
-∧ (And) · ∨ (Or) · → (Implies) · ¬ (Not) · ↔ (Iff)
+∧ (And) · ∨ (Or) · → (Implies)  
+*Note: Not (¬) and Iff (↔) are defined but lack inference rules*
 
 **Inference Rules**
-- Introduction and elimination for ∧, ∨, →
-- Assumption handling
-- Modus ponens
+- `Assumption` - Introduce hypotheses
+- `AndIntro` / `AndElimLeft` / `AndElimRight` - Conjunction rules
+- `OrIntroLeft` / `OrIntroRight` - Disjunction introduction
+- `ImpliesElim` - Modus ponens
 
-**Guarantees**
-- 70+ verified test cases
-- No runtime errors possible
-- Sound inference rules
+**What's Missing**
+- Disjunction elimination (case analysis)
+- Negation introduction/elimination
+- Implication introduction (requires subproofs)
+- Biconditional rules
+
+**Verification**
+- 70+ test cases covering all implemented rules
+- Sound inference (invalid proofs are impossible)
+- No runtime errors
 
 ---
 
@@ -67,7 +79,7 @@ ValidLine       → Verifies individual proof steps
 ValidProof      → Ensures entire proof is correct
 ```
 
-**Key Design**: Lines can only reference *earlier* lines, preventing circular reasoning and ensuring well-founded proofs.
+**Key constraint:** Lines can only reference *earlier* lines, preventing circular reasoning.
 
 See [`DESIGN.md`](./docs/DESIGN.md) for detailed architecture.
 
@@ -83,28 +95,33 @@ examples/
   basic_proofs.dfy   # Example proofs
 docs/
   DESIGN.md          # Design decisions
-  TUTORIAL.md        # Getting started
 ```
 
 ---
 
 ## Technical Highlights
 
-- **Formal verification** - Dafny proves code correctness mathematically
-- **Type safety** - Invalid proof structures impossible to construct
-- **Inductive reasoning** - Each line builds on prior lines only
-- **Preconditions** - Index bounds checked at compile-time
+- **Formal verification** - Dafny mathematically proves correctness
+- **Type safety** - Invalid proof structures impossible to construct  
+- **Forward-only references** - Each line builds on prior lines only
+- **Compile-time bounds checking** - Index safety via preconditions
 
 ---
 
 ## Future Work
 
-- Subproofs
+**Core Extensions**
+- Subproof mechanism (required for most remaining rules)
+- Negation introduction/elimination
+- Implication introduction
+- Disjunction elimination
+- Biconditional rules
+
+**Advanced Features**
 - Predicate logic (∀, ∃)
-- Natural deduction for disjunction elimination, negation, implication introduction, etc. (all of which rely on subproofs).
 - Proof search and optimization
 - Interactive proof assistant interface
-  
+
 ---
 
 ## Built With
@@ -115,7 +132,7 @@ docs/
 
 ## Author
 
-**Your Name**  
+**Puneet Puli**  
 [GitHub](https://github.com/PuneetPuli)
 
 ---
