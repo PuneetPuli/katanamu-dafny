@@ -26,8 +26,7 @@
 Traditional testing: "Does this work for these 100 inputs?"
 Formal verification: "Does this work for ALL possible inputs?"
 
-This project mathematically proves that invalid proofs cannot be constructed,
-providing stronger guarantees than any amount of testing.
+This project mathematically proves that invalid proofs cannot be constructed, providing stronger guarantees than any amount of testing
 ---
 ## Quick Start
 
