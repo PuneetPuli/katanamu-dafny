@@ -3,6 +3,9 @@
 > A minimal natural-deduction proof checker in Dafny
 
 [![Dafny](https://img.shields.io/badge/Dafny-4.0+-blue.svg)](https://dafny.org/)
+![Formal Methods](https://img.shields.io/badge/Formal%20Methods-Verified-brightgreen)
+![Logic](https://img.shields.io/badge/Logic-Natural%20Deduction-orange)
+![Tests](https://img.shields.io/badge/Tests-70%2B-green)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
