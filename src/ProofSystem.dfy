@@ -29,7 +29,7 @@ datatype ProofLine = Line(formula: Formula, justification: Justification)
 // Consecutive lines of proofs.
 type Proof = seq<ProofLine>
 
-/*
+/* p, q ⊢ p ∧ q
    Example proof:
    Line(Atom("p"), Assumption),
    Line(Atom("q"), Assumption),
@@ -90,6 +90,33 @@ predicate Proves(proof: Proof, goal: Formula)
   ValidProof(proof) && proof[|proof|-1].formula == goal
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Basic correctness tests for proof validation.
 method test()
 {
@@ -131,6 +158,14 @@ method test()
   assert(CheckProof(a) == false);
   assert(Proves(a, Atom("q")) == false);
 }  
+
+
+
+
+
+
+
+
 
 // ============================================================================
 // TEST SUITE FOR ValidLine PREDICATE
