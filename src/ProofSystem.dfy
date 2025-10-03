@@ -6,12 +6,12 @@
  * Supports atoms and standard logical connectives.
  */
 datatype Formula =
-  | Atom(name: string)                            // Atomic proposition (e.g., "p", "q")
-  | And(left: Formula, right: Formula)            // Conjunction: φ ∧ ψ
-  | Or(left: Formula, right: Formula)             // Disjunction: φ ∨ ψ
-  | Not(f: Formula)                               // Negation: ¬φ
-  | Implies(left: Formula, right: Formula)        // Implication: φ → ψ
-  | Iff(left: Formula, right: Formula)            // Biconditional: φ ↔ ψ
+  | Atom(name: string)                                    /* Atomic proposition (e.g., "p", "q") */
+  | And(left: Formula, right: Formula)                    // Conjunction: φ ∧ ψ
+  | Or(left: Formula, right: Formula)                     // Disjunction: φ ∨ ψ
+  | Not(f: Formula)                                       // Negation: ¬φ
+  | Implies(left: Formula, right: Formula)                // Implication: φ → ψ
+  | Iff(left: Formula, right: Formula)                    // Biconditional: φ ↔ ψ 
 
 // Justification for how a formula was derived in a proof.
 datatype Justification = 
