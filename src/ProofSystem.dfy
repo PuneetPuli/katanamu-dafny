@@ -68,6 +68,7 @@ predicate ValidLine(proof: Proof, lineIndex: nat)
   case OrIntroRight(i, l) =>
     (i < lineIndex &&
     line.formula == Or(l, proof[i].formula))  // Introduce disjunction on the right: ψ ⊢ φ ∨ ψ
+  
 }
 
 // A proof is valid if every line is valid.
