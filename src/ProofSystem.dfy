@@ -653,9 +653,9 @@ method TestComplexProofValid()
   var proof := [
     Line(Atom("p"), Assumption),
     Line(Atom("q"), Assumption),
-    Line(And(Atom("p"), Atom("q")), AndIntro(0, 1)),
     Line(Implies(And(Atom("p"), Atom("q")), Atom("r")), Assumption),
-    Line(Atom("r"), ImpliesElim(3, 2))
+    Line(And(Atom("p"), Atom("q")), AndIntro(0, 1)),
+    Line(Atom("r"), ImpliesElim(2, 3))
   ];
   assert CheckProof(proof);
   assert Proves(proof, Atom("r"));
