@@ -168,7 +168,7 @@ Proves          → Validates proof achieves goal formula
 - Subproofs are self-contained (no external line references)
 - First line of subproof must match its declared assumption
 
-See [`DESIGN.md`](./docs/DESIGN.md) for detailed architecture.
+See [`DESIGN.md`](./DESIGN.md) for detailed architecture.
 
 ---
 
